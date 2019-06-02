@@ -12,6 +12,7 @@
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
+        "laravelrus/sleepingowl": "5.6.*",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {
@@ -57,10 +58,17 @@
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta",
+            "@php artisan sleepingowl:update"
+        ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php artisan ide-helper:generate",
             "@php artisan ide-helper:meta",
+            "@php artisan sleepingowl:update",
             "@echo 'Configure your database connection in .env and execute $ php artisan ide-helper:models -N'"
         ]
     }
