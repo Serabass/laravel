@@ -60,7 +60,8 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php artisan ide-helper:generate",
-            "@php artisan ide-helper:meta"
+            "@php artisan ide-helper:meta",
+            "@echo 'Configure your database connection in .env and execute $ php artisan ide-helper:models -N'"
         ]
     }
 }
